@@ -16,6 +16,7 @@
 		47EF84661DC3A2890049F3FE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EF84651DC3A2890049F3FE /* SearchTableViewCell.swift */; };
 		47EF84691DC3A2AA0049F3FE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EF84681DC3A2AA0049F3FE /* AlbumViewController.swift */; };
 		47EF846B1DC3A9640049F3FE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EF846A1DC3A9640049F3FE /* Extensions.swift */; };
+		47EF84711DC3D10E0049F3FE /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EF84701DC3D10E0049F3FE /* Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		47EF84651DC3A2890049F3FE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = SpotifySearch/SearchTableViewCell.swift; sourceTree = "<group>"; };
 		47EF84681DC3A2AA0049F3FE /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumViewController.swift; path = SpotifySearch/AlbumViewController.swift; sourceTree = "<group>"; };
 		47EF846A1DC3A9640049F3FE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		47EF84701DC3D10E0049F3FE /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = SpotifySearch/Manager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		47EF84411DC3A1450049F3FE = {
 			isa = PBXGroup;
 			children = (
+				47EF84701DC3D10E0049F3FE /* Manager.swift */,
 				47EF84611DC3A2480049F3FE /* View Controller */,
 				47EF84641DC3A25D0049F3FE /* Model */,
 				47EF84671DC3A28C0049F3FE /* View */,
@@ -176,6 +179,7 @@
 				47EF846B1DC3A9640049F3FE /* Extensions.swift in Sources */,
 				47EF84691DC3A2AA0049F3FE /* AlbumViewController.swift in Sources */,
 				47EF84661DC3A2890049F3FE /* SearchTableViewCell.swift in Sources */,
+				47EF84711DC3D10E0049F3FE /* Manager.swift in Sources */,
 				47EF844E1DC3A1460049F3FE /* AppDelegate.swift in Sources */,
 				47EF84631DC3A2590049F3FE /* Album.swift in Sources */,
 			);
