@@ -13,58 +13,24 @@ class SpotifyTableViewController: UITableViewController {
   var session: URLSession?
   var task: URLSessionDownloadTask?
   var albums = [Album]()
-  var url = "https://api.spotify.com/v1/search?q=Nell&type=album&limit=50"
+  var endpoint = "https://api.spotify.com/v1/search?q=Nell&type=album&limit=50"
   
   override func viewDidLoad() {
     super.viewDidLoad()
     session = URLSession.shared
     task = URLSessionDownloadTask()
     
-    APIManager.manager.getData(endPoint: url) { (data: Data?) in
-      if let datum = data {
-        for each in datum {
-          if let each = Album(dict: each as AnyObject) {
-            self.albums.append(each)
-          }
-        }
+    APIManager.manager.getData(endPoint: endpoint) { (data: Data?) in
+      if let d = data {
+        self.albums = Album.parseData(with: d)!
+        print(self.albums.count)
+        
       }
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }
     }
-    }
-  
-  
-  
-//    func loadData(){
-//      guard let shareSession = session, var downloadTask = task else { return }
-//      let url:URL! = URL(string: "https://api.spotify.com/v1/search?q=Nell&type=album&limit=50")
-//      downloadTask = shareSession.downloadTask(with: url, completionHandler: { (location: URL?, response: URLResponse?, error: Error?) -> Void in
-//        if location != nil {
-//          let data:Data! = try? Data(contentsOf: location!)
-//          do{
-//            let dict = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
-//            // How do we get stuff from items? helppppp
-//            if let dictData = dict.value(forKey : "albums") as? [String:AnyObject] {
-//              for stuff in dictData {
-//                //??????????????????????
-//                if let this = Album(dict: stuff as AnyObject) {
-//                  self.albums.append(this)
-//                }
-//                }
-//              }
-//            
-//              DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//              }
-//            
-//          }catch{
-//            print("something went wrong, try again")
-//          }
-//        }
-//      })
-//      downloadTask.resume()
-//    }
+  }
   
   
   

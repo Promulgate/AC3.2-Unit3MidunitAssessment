@@ -8,23 +8,55 @@
 
 import Foundation
 
-class Album {
-  let albumName: String
-  let thumbnail: String
-  let largeImage: String
+struct Album {
+  internal let albumName: String
+  internal let thumbnail: String
+  internal let largeImage: String
   
-  init(album: String, imageURL: [[String:Any]]) {
-    albumName = album
-    thumbnail = imageURL[3]["url"] as! String
-    largeImage = imageURL[0]["url"] as! String
-  }
-  
-  convenience init?(dict: AnyObject) {
-      if let album = dict["name"] as? String, let imageURL = dict["images"] as? [[String:Any]] {
-      self.init(album: album, imageURL: imageURL)
-    }
+
+  static func parseData (with data: Data) -> [Album]? {
+    var albums: [Album] = []
     
-    else { return nil }
+    do {
+      let jsonData: Any = try JSONSerialization.jsonObject(with: data, options: [])
+      
+      guard let jsonUnwrapped = jsonData as? [String:Any] else {
+        print("JSON fail")
+        return nil
+      }
+      guard let albumsUnwrapped = jsonUnwrapped["albums"] as? [String: Any] else {
+        print("Albums fail")
+        return nil
+      }
+      guard let itemsUnwrapped = albumsUnwrapped["items"] as? [[String: Any]] else {
+        print("Items fail")
+        return nil
+      }
+      
+      for albumDictionary in itemsUnwrapped {
+        guard let albumName = albumDictionary["name"] as? String else {
+          print("Error: album name")
+          return nil
+        }
+        guard let images = albumDictionary["images"] as? [[String:AnyObject]] else {
+          print("Error: imagesDict")
+          return nil
+        }
+        guard let thumbImage = images[2]["url"] as? String, let fullImage = images[0]["url"] as? String else {
+          print("Error: hard coded image index")
+          return nil
+        }
+
+        albums.append(self.init(albumName: albumName,
+                                thumbnail: thumbImage,
+                                largeImage: fullImage))
+      }
+      
+    }
+    catch {
+      print("Error: \(error)")
+    }
+    return albums
   }
   
 }
