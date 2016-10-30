@@ -9,18 +9,12 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
-
+  
   @IBOutlet weak var albumImageView: UIImageView!
   @IBOutlet weak var albumNameLabel: UILabel!
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
   
-  
-    override func awakeFromNib() {
-        super.awakeFromNib()
-      
-      albumNameLabel.text = "test"
-    }
-
-
-
 }
