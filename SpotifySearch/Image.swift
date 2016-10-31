@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Image {
+class Image {
     let height: Int
     let width: Int
     let url: URL

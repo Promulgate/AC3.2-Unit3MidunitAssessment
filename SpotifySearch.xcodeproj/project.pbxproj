@@ -110,8 +110,8 @@
 		1E7117611DC7CF6B00FAF7E7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1E6201D81DC014F900953015 /* AlbumViewController.swift */,
 				1E59F1D21DBFC9AE0094EA59 /* AlbumsTableViewController.swift */,
+				1E6201D81DC014F900953015 /* AlbumViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

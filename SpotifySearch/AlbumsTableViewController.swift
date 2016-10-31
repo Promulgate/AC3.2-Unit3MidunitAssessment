@@ -10,7 +10,7 @@ import UIKit
 
 class AlbumsTableViewController: UITableViewController {
     var albums: [Album] = []
-    let searchTerm = "blue"
+    let searchTerm = "Nell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
